@@ -1,0 +1,1133 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CF Test 2 Study Guide</title>
+<style>
+:root{
+  --bg:#f7f5f0; --card:#ffffff; --ink:#1f2328; --muted:#5b6370; --line:#e3ded3;
+  --accent:#1d5fa8; --accent-soft:#e6eef8; --w7:#1d5fa8; --w8:#b5531c; --w8-soft:#fbeee6;
+  --good:#1f7a4d; --good-soft:#e5f4ec; --warn:#9a6a00; --warn-soft:#fdf3d8; --bad:#b3261e;
+  --code:#f1efe9; --svg-fill:#eef2f7; --svg-stroke:#41536b;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#15171a; --card:#1e2125; --ink:#e7e9ec; --muted:#a2a9b3; --line:#30353c;
+    --accent:#7fb2ec; --accent-soft:#1f2c3b; --w7:#7fb2ec; --w8:#f0a070; --w8-soft:#3a271c;
+    --good:#6fd3a0; --good-soft:#1b3127; --warn:#f2c35b; --warn-soft:#3a3020; --bad:#ff8a80;
+    --code:#262a30; --svg-fill:#26303c; --svg-stroke:#a9bad0;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#15171a; --card:#1e2125; --ink:#e7e9ec; --muted:#a2a9b3; --line:#30353c;
+  --accent:#7fb2ec; --accent-soft:#1f2c3b; --w7:#7fb2ec; --w8:#f0a070; --w8-soft:#3a271c;
+  --good:#6fd3a0; --good-soft:#1b3127; --warn:#f2c35b; --warn-soft:#3a3020; --bad:#ff8a80;
+  --code:#262a30; --svg-fill:#26303c; --svg-stroke:#a9bad0;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.65 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+.wrap{max-width:900px;margin:0 auto;padding:0 16px 80px}
+header.top{padding:36px 0 18px}
+header.top h1{font-size:1.9rem;line-height:1.2;margin:0 0 6px}
+header.top p{margin:0;color:var(--muted)}
+nav.toc{position:sticky;top:0;z-index:5;background:var(--bg);border-bottom:1px solid var(--line);padding:10px 0;display:flex;gap:8px;overflow-x:auto;scrollbar-width:thin}
+nav.toc a{flex:0 0 auto;text-decoration:none;color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:999px;padding:5px 12px;font-size:.88rem;white-space:nowrap}
+nav.toc a.w7{border-color:var(--w7)} nav.toc a.w8{border-color:var(--w8)}
+h2{font-size:1.45rem;margin:42px 0 6px;padding-top:8px}
+h2 .tag{font-size:.75rem;vertical-align:middle;border-radius:6px;padding:2px 8px;margin-right:8px;color:#fff;background:var(--w7)}
+h2 .tag.w8{background:var(--w8)}
+h3{font-size:1.12rem;margin:26px 0 6px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 20px;margin:14px 0}
+.box{border-radius:10px;padding:12px 16px;margin:12px 0}
+.analogy{background:var(--accent-soft);border-left:4px solid var(--accent)}
+.memory{background:var(--good-soft);border-left:4px solid var(--good)}
+.exam{background:var(--warn-soft);border-left:4px solid var(--warn)}
+.box b.lbl{display:block;font-size:.8rem;text-transform:uppercase;letter-spacing:.05em;margin-bottom:2px}
+.analogy b.lbl{color:var(--accent)} .memory b.lbl{color:var(--good)} .exam b.lbl{color:var(--warn)}
+table{width:100%;border-collapse:collapse;font-size:.93rem;margin:10px 0}
+th,td{border:1px solid var(--line);padding:7px 9px;text-align:left;vertical-align:top}
+th{background:var(--code)}
+.tablewrap{overflow-x:auto}
+code,.mono{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;background:var(--code);padding:1px 5px;border-radius:4px;font-size:.9em}
+svg{max-width:100%;height:auto;display:block;margin:10px auto}
+svg text{fill:var(--ink);font-family:system-ui,sans-serif}
+.s-fill{fill:var(--svg-fill);stroke:var(--svg-stroke);stroke-width:1.5}
+.s-line{stroke:var(--svg-stroke);stroke-width:1.8;fill:none}
+.s-acc{fill:var(--accent)} .s-w8{fill:var(--w8)}
+ul,ol{padding-left:22px} li{margin:3px 0}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media (max-width:640px){.grid2{grid-template-columns:1fr} body{font-size:16px} header.top h1{font-size:1.5rem}}
+details.q{background:var(--card);border:1px solid var(--line);border-radius:10px;margin:10px 0;padding:0}
+details.q summary{cursor:pointer;padding:12px 16px;font-weight:600;list-style:none}
+details.q summary::-webkit-details-marker{display:none}
+details.q summary::before{content:"▸ ";color:var(--accent)}
+details.q[open] summary::before{content:"▾ "}
+details.q .ans{padding:0 16px 14px;border-top:1px dashed var(--line)}
+.marks{font-weight:400;color:var(--muted);font-size:.85rem}
+.ctrl{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}
+button{font:inherit;font-size:.9rem;padding:6px 14px;border-radius:8px;border:1px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer}
+button:hover{border-color:var(--accent)}
+.note{font-size:.9rem;color:var(--muted)}
+.pill{display:inline-block;border:1px solid var(--line);border-radius:6px;padding:1px 7px;font-size:.85rem;margin:2px 2px;background:var(--code)}
+.big{font-size:1.15rem;font-weight:700}
+.check li{list-style:none;margin-left:-20px}
+.check input{margin-right:8px;transform:scale(1.15)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="top">
+  <h1>Computer Forensics — Test 2 Study Guide</h1>
+  <p>TEB3213 / TFB2143 · Week 7 (Forensic Tools, Windows &amp; File Systems) + Week 8 (Recovering Graphics Files, Part 1) · Subjective test</p>
+</header>
+
+<nav class="toc">
+  <a href="#how">How to use</a>
+  <a class="w7" href="#tools">W7 Tools</a>
+  <a class="w7" href="#fs">W7 File systems &amp; boot</a>
+  <a class="w7" href="#disk">W7 Disks &amp; partitions</a>
+  <a class="w7" href="#enc">W7 Encryption</a>
+  <a class="w7" href="#reg">W7 Registry</a>
+  <a class="w7" href="#vm">W7 Virtual machines</a>
+  <a class="w8" href="#gfx">W8 Graphics types</a>
+  <a class="w8" href="#fmt">W8 Formats &amp; compression</a>
+  <a class="w8" href="#cam">W8 Camera / Exif</a>
+  <a class="w8" href="#hdr">W8 Headers &amp; carving</a>
+  <a class="w8" href="#steg">W8 Steganography</a>
+  <a class="w8" href="#copy">W8 Copyright</a>
+  <a href="#cheat">Cheat sheet</a>
+  <a href="#qs">Practice questions</a>
+  <a href="#check">Checklist</a>
+</nav>
+
+<!-- ============ HOW ============ -->
+<section id="how">
+<h2>How to use this guide</h2>
+<div class="card">
+<p>Each topic has four parts:</p>
+<ul>
+  <li><b>Simple explanation</b>: what it is, in plain words.</li>
+  <li><span class="pill" style="border-color:var(--accent)">Analogy</span> a picture from daily life so it makes sense.</li>
+  <li><span class="pill" style="border-color:var(--good)">Memory trick</span> a short phrase to recall lists in the exam hall.</li>
+  <li><span class="pill" style="border-color:var(--warn)">Exam tip</span> what the lecturer is likely to ask and how to answer.</li>
+</ul>
+<p><b>Study plan:</b> Day 1 = Week 7. Day 2 = Week 8. Day 3 = cover the answers and write out the practice questions on paper (the test is hand-written, so practise writing).</p>
+<div class="box exam"><b class="lbl">How to write a subjective answer (for full marks)</b>
+Use <b>D-E-E</b>: <b>D</b>efine it → <b>E</b>xplain how it works / why it matters → give an <b>E</b>xample. For "list" questions, give one short line per point. For "compare" questions, draw a small table.</div>
+</div>
+</section>
+
+<!-- ============ WEEK 7: TOOLS ============ -->
+<section id="tools">
+<h2><span class="tag">WEEK 7</span>Digital forensics tools</h2>
+
+<div class="card">
+<p>Week 7 covers <b>7 tools (or tool groups)</b>. Each one is good at a different kind of evidence. The key is to know <b>what evidence each tool looks at</b>.</p>
+
+<svg viewBox="0 0 760 250" role="img" aria-label="Which tool for which evidence">
+  <rect class="s-fill" x="10" y="10" width="170" height="60" rx="10"/>
+  <text x="95" y="36" text-anchor="middle" font-weight="700" font-size="15">Hard disk / USB</text>
+  <text x="95" y="56" text-anchor="middle" font-size="12">(stored data)</text>
+  <rect class="s-fill" x="10" y="95" width="170" height="60" rx="10"/>
+  <text x="95" y="121" text-anchor="middle" font-weight="700" font-size="15">RAM (memory)</text>
+  <text x="95" y="141" text-anchor="middle" font-size="12">(lost when power off)</text>
+  <rect class="s-fill" x="10" y="180" width="170" height="60" rx="10"/>
+  <text x="95" y="206" text-anchor="middle" font-weight="700" font-size="15">Network / Phone / Web</text>
+  <text x="95" y="226" text-anchor="middle" font-size="12">(traffic, mobile, browsing)</text>
+  <line class="s-line" x1="180" y1="40" x2="300" y2="40"/>
+  <line class="s-line" x1="180" y1="125" x2="300" y2="125"/>
+  <line class="s-line" x1="180" y1="210" x2="300" y2="210"/>
+  <rect x="300" y="10" width="450" height="60" rx="10" fill="none" stroke="var(--w7)" stroke-width="2"/>
+  <text x="315" y="36" font-size="14"><tspan font-weight="700">FTK Imager</tspan> → make a copy (image)</text>
+  <text x="315" y="56" font-size="14"><tspan font-weight="700">Autopsy</tspan>, <tspan font-weight="700">ProDiscover</tspan> → analyse &amp; recover files</text>
+  <rect x="300" y="95" width="450" height="60" rx="10" fill="none" stroke="var(--w7)" stroke-width="2"/>
+  <text x="315" y="130" font-size="14"><tspan font-weight="700">Volatility</tspan> → analyse a memory dump</text>
+  <rect x="300" y="180" width="450" height="60" rx="10" fill="none" stroke="var(--w7)" stroke-width="2"/>
+  <text x="315" y="204" font-size="14"><tspan font-weight="700">Wireshark</tspan> → network packets · <tspan font-weight="700">XAMN</tspan> → phone data</text>
+  <text x="315" y="226" font-size="14"><tspan font-weight="700">Browser History Capturer / Viewer</tspan> → web history</text>
+</svg>
+
+<div class="box memory"><b class="lbl">Memory trick: the 7 tools</b>
+<span class="big">"Fat Auntie Wants Very Pretty eXpensive Bags"</span><br>
+<b>F</b>TK Imager · <b>A</b>utopsy · <b>W</b>ireshark · <b>V</b>olatility · <b>P</b>roDiscover · <b>X</b>AMN · <b>B</b>rowser History Capturer/Viewer</div>
+</div>
+
+<h3>1. FTK Imager</h3>
+<div class="card">
+<p><b>What:</b> A free tool by <b>AccessData</b> for <b>imaging</b> (making an exact copy of) and looking at storage devices: hard drives, SSDs and network shares.</p>
+<p><b>Features (from slide):</b> supports many file systems, <b>image carving</b>, <b>hash matching</b>, <b>report generation</b>.</p>
+<div class="box analogy"><b class="lbl">Analogy</b>FTK Imager is a <b>photocopy machine</b> for evidence. You never write on the original document; you photocopy it and work on the copy. The <b>hash</b> is like a fingerprint that proves the copy matches the original exactly.</div>
+<p class="note">Side note: the slide calls FTK Imager "free and open-source". It is free, but its code is not open-source (it is owned by AccessData, now Exterro). In the test, write "free tool by AccessData" and you're safe either way.</p>
+</div>
+
+<h3>2. Autopsy</h3>
+<div class="card">
+<p><b>What:</b> A complete, <b>open-source</b> tool used by police, forensic experts and organisations to analyse and pull evidence from digital devices.</p>
+<div class="tablewrap"><table>
+<tr><th>Feature</th><th>Simple meaning</th></tr>
+<tr><td>File System Analysis</td><td>Walk through the folders and files of the device</td></tr>
+<tr><td>Data Extraction</td><td>Pull out images, videos, documents and other artifacts</td></tr>
+<tr><td>Data Recovery</td><td>Bring back deleted or corrupted files</td></tr>
+<tr><td>Timeline Analysis</td><td>Show events in time order (what happened first, next, last)</td></tr>
+<tr><td>Advanced Search</td><td>Filter data by keyword, type, date and other criteria</td></tr>
+<tr><td>Reporting</td><td>Create reports and presentations of findings</td></tr>
+<tr><td>Integration</td><td>Work with other forensic tools and databases</td></tr>
+</table></div>
+<div class="box memory"><b class="lbl">Memory trick: 7 Autopsy features</b>
+<span class="big">"Five Doctors Do Tests And Report Immediately"</span><br>
+<b>F</b>ile system · <b>D</b>ata extraction · <b>D</b>ata recovery · <b>T</b>imeline · <b>A</b>dvanced search · <b>R</b>eporting · <b>I</b>ntegration</div>
+<div class="box analogy"><b class="lbl">Analogy</b>The name is the hint. A doctor does an <b>autopsy</b> on a body to find out what happened. The Autopsy tool does the same to a hard disk: it opens everything up, finds the cause, and writes a report.</div>
+</div>
+
+<h3>3. Wireshark</h3>
+<div class="card">
+<p><b>What:</b> An <b>open-source</b> tool that <b>captures and analyses network traffic in real time</b>. Used by forensic investigators, security staff and network admins.</p>
+<div class="tablewrap"><table>
+<tr><th>Feature</th><th>Simple meaning</th></tr>
+<tr><td>Real-time packet capture</td><td>Grabs packets live from a network card and shows protocol details</td></tr>
+<tr><td>Deep packet inspection</td><td>Looks inside packets down to the bit level; supports hundreds of protocols (TCP, UDP, HTTP, FTP, DNS…)</td></tr>
+<tr><td>Filtering and search</td><td>Display filters to isolate suspicious traffic or payloads</td></tr>
+<tr><td>Decryption support</td><td>Can decrypt SSL/TLS if you have the right keys</td></tr>
+<tr><td>Export and reporting</td><td>Save captured data in many formats</td></tr>
+<tr><td>Cross-platform</td><td>Runs on Windows, macOS and Linux</td></tr>
+</table></div>
+<p><b>Uses in forensics:</b></p>
+<ul>
+  <li><b>Intrusion detection</b>: spot unauthorised access attempts or data being sent out (data exfiltration).</li>
+  <li><b>Malware analysis</b>: track how malware talks to its command-and-control (C2) server.</li>
+  <li><b>User activity monitoring</b>: find which websites, apps and remote services a user accessed, and when.</li>
+</ul>
+<div class="box memory"><b class="lbl">Memory tricks</b>
+Features: <span class="big">"Cats Dig For Delicious Extra Chicken"</span>: <b>C</b>apture · <b>D</b>eep inspection · <b>F</b>ilter · <b>D</b>ecrypt · <b>E</b>xport · <b>C</b>ross-platform<br>
+Uses: <span class="big">"I M U"</span> = "<b>I</b> <b>M</b>ust <b>U</b>nderstand": <b>I</b>ntrusion · <b>M</b>alware · <b>U</b>ser activity</div>
+<div class="box analogy"><b class="lbl">Analogy</b>The network is a <b>highway</b> and packets are <b>cars</b>. Wireshark is a <b>CCTV camera plus a traffic officer</b>: it records every car, and can stop one to open the boot and look inside (deep packet inspection).</div>
+</div>
+
+<h3>4. Volatility</h3>
+<div class="card">
+<p><b>What:</b> A tool to analyse <b>volatile memory dumps</b> (a saved copy of RAM). RAM is "volatile" because it is <b>lost when power is off</b>, so it holds evidence that is not on the disk: running programs, open connections, passwords in memory.</p>
+<div class="tablewrap"><table>
+<tr><th>Feature</th><th>Simple meaning</th></tr>
+<tr><td>Memory Image Analysis</td><td>Analyse memory dump files, by hand or automatically</td></tr>
+<tr><td>System Information</td><td>Hardware/software setup, installed drivers, system services</td></tr>
+<tr><td>Process &amp; Thread Analysis</td><td>Which programs were running and how they behaved</td></tr>
+<tr><td>File System Analysis</td><td>Files, deleted files and metadata as they were at that moment</td></tr>
+<tr><td>Registry Analysis</td><td>Read registry: installed apps, settings, user settings</td></tr>
+</table></div>
+<div class="box memory"><b class="lbl">Memory trick: 5 Volatility features</b>
+<span class="big">"My Sister Plays Football Regularly"</span><br>
+<b>M</b>emory image · <b>S</b>ystem info · <b>P</b>rocess &amp; thread · <b>F</b>ile system · <b>R</b>egistry</div>
+<div class="box analogy"><b class="lbl">Analogy</b>RAM is a <b>whiteboard</b> in a meeting room. When the meeting ends (power off), someone wipes it. A memory dump is a <b>photo of the whiteboard</b> before it is wiped. Volatility reads that photo.</div>
+<p><b>Registry hive locations (slide 11):</b> know these paths.</p>
+<div class="tablewrap"><table>
+<tr><th>Hive</th><th>Location</th><th>What it holds (simple)</th></tr>
+<tr><td>SYSTEM</td><td><code>C:\Windows\System32\config\SYSTEM</code></td><td>Hardware, drivers, services, USB devices</td></tr>
+<tr><td>SOFTWARE</td><td><code>C:\Windows\System32\config\SOFTWARE</code></td><td>Installed programs and their settings</td></tr>
+<tr><td>SECURITY</td><td><code>C:\Windows\System32\config\SECURITY</code></td><td>Security policies</td></tr>
+<tr><td>SAM</td><td><code>C:\Windows\System32\config\SAM</code></td><td>User accounts and password hashes</td></tr>
+<tr><td>DEFAULT</td><td><code>C:\Windows\System32\config\DEFAULT</code></td><td>Default user profile settings</td></tr>
+<tr><td>NTUSER.DAT</td><td><code>C:\Users\&lt;username&gt;\NTUSER.DAT</code></td><td>One user's personal settings and recent activity</td></tr>
+<tr><td>UsrClass.dat</td><td><code>C:\Users\&lt;username&gt;\AppData\Local\Microsoft\Windows\UsrClass.dat</code></td><td>User's file associations and folder-view (shellbag) data</td></tr>
+</table></div>
+<div class="box memory"><b class="lbl">Memory trick</b>The five system hives live together in <b>System32\config</b>: <span class="big">"SSS-SD"</span> = <b>S</b>YSTEM, <b>S</b>OFTWARE, <b>S</b>ECURITY, <b>S</b>AM, <b>D</b>EFAULT. The two <b>user</b> hives (NTUSER.DAT, UsrClass.dat) live in the <b>user's folder</b>.</div>
+</div>
+
+<h3>5. ProDiscover</h3>
+<div class="card">
+<p><b>What:</b> Software to analyse and extract evidence from computers, smartphones and other storage. The lab uses <b>ProDiscover Free Edition</b> with a <b>DD file</b> (raw image) called <code>RHINOUSB.7z</code>.</p>
+<p><b>Two views:</b></p>
+<ul>
+  <li><b>Content View</b>: shows files and folders, like Windows Explorer.</li>
+  <li><b>Cluster View</b>: shows the raw clusters (blocks) on the disk, so you can see data in unallocated space and carve deleted files.</li>
+</ul>
+<div class="box analogy"><b class="lbl">Analogy</b>Content View is reading a <b>book's table of contents</b>. Cluster View is reading <b>every page one by one</b>, including torn-out pages lying on the floor (deleted data).</div>
+<p>ProDiscover is also used in Week 8 to <b>search for and carve JPEG files</b> and to <b>read Exif metadata</b>.</p>
+</div>
+
+<h3>6. XAMN</h3>
+<div class="card">
+<p><b>What:</b> A forensic tool for <b>analysing digital evidence</b>, mainly data taken from <b>mobile phones</b> (chats, calls, contacts, photos, locations). It has many features for investigators.</p>
+<p class="note">Side note: the slide calls XAMN open-source. It is actually made by the company MSAB (a free "XAMN Viewer" exists, the full version is paid). For the test, focus on "analyses digital (mainly mobile) evidence".</p>
+<div class="box analogy"><b class="lbl">Analogy</b>XAMN is a <b>magnifying glass for a phone</b>: it lays out all the chats, calls and places on one table so you can see the story.</div>
+</div>
+
+<h3>7. Browser History Capturer &amp; Browser History Viewer</h3>
+<div class="card">
+<div class="grid2">
+<div><b>Browser History Capturer</b><br>Extracts (pulls out) browsing history from Chrome, Edge, Firefox and Internet Explorer on a Windows computer. Shows users' browsing patterns and behaviour.</div>
+<div><b>Browser History Viewer</b><br>Displays and lets you navigate the captured history: every website visited, with <b>date and time</b> of each visit.</div>
+</div>
+<div class="box memory"><b class="lbl">Memory trick</b><b>Capturer = Collect</b> (both start with C). <b>Viewer = View</b>. Capture first, then view.</div>
+</div>
+</section>
+
+<!-- ============ WEEK 7: FILE SYSTEMS + BOOT ============ -->
+<section id="fs">
+<h2><span class="tag">WEEK 7</span>File systems &amp; the boot sequence</h2>
+<div class="card">
+<h3 style="margin-top:0">File system</h3>
+<p>A <b>file system</b> gives the operating system (OS) a <b>road map</b> to the data on a disk. The type of file system (e.g. NTFS, FAT32, ext4) decides <b>how data is stored</b>. An investigator must know both the <b>OS</b> and the <b>file system</b> before acquiring or inspecting a suspect's computer.</p>
+<div class="box analogy"><b class="lbl">Analogy</b>The disk is a huge <b>library</b>. The file system is the <b>library catalogue</b> that says "Book X is on shelf 5, row 3". Different libraries use different catalogue systems, so you must know which one you are reading.</div>
+
+<h3>Boot sequence</h3>
+<svg viewBox="0 0 760 130" role="img" aria-label="Boot sequence">
+  <rect class="s-fill" x="5" y="25" width="165" height="80" rx="10"/>
+  <text x="87" y="55" text-anchor="middle" font-weight="700" font-size="15">1. Power ON</text>
+  <text x="87" y="78" text-anchor="middle" font-size="12">CMOS keeps date,</text>
+  <text x="87" y="94" text-anchor="middle" font-size="12">time &amp; config</text>
+  <rect class="s-fill" x="200" y="25" width="165" height="80" rx="10"/>
+  <text x="282" y="55" text-anchor="middle" font-weight="700" font-size="15">2. BIOS / EFI</text>
+  <text x="282" y="78" text-anchor="middle" font-size="12">tests hardware,</text>
+  <text x="282" y="94" text-anchor="middle" font-size="12">basic input/output</text>
+  <rect class="s-fill" x="395" y="25" width="165" height="80" rx="10"/>
+  <text x="477" y="55" text-anchor="middle" font-weight="700" font-size="15">3. Bootstrap</text>
+  <text x="477" y="78" text-anchor="middle" font-size="12">in ROM: how to</text>
+  <text x="477" y="94" text-anchor="middle" font-size="12">proceed / which disk</text>
+  <rect class="s-fill" x="590" y="25" width="165" height="80" rx="10"/>
+  <text x="672" y="55" text-anchor="middle" font-weight="700" font-size="15">4. MBR → OS</text>
+  <text x="672" y="78" text-anchor="middle" font-size="12">partition info,</text>
+  <text x="672" y="94" text-anchor="middle" font-size="12">load Windows</text>
+  <path class="s-line" d="M170 65 L196 65 M188 58 L196 65 L188 72"/>
+  <path class="s-line" d="M365 65 L391 65 M383 58 L391 65 L383 72"/>
+  <path class="s-line" d="M560 65 L586 65 M578 58 L586 65 L578 72"/>
+</svg>
+<ul>
+  <li><b>CMOS</b> (Complementary Metal Oxide Semiconductor): stores <b>system configuration and date/time</b>, even when power is off (kept alive by a small battery).</li>
+  <li><b>BIOS</b> (Basic Input/Output System) or <b>EFI</b> (Extensible Firmware Interface): programs that do input/output at the <b>hardware level</b>.</li>
+  <li><b>Bootstrap process</b>: stored in <b>ROM</b>; tells the computer how to start. It shows which key opens the CMOS setup screen (e.g. F2, Del).</li>
+  <li><b>Master Boot Record (MBR)</b>: stores information about the <b>partitions</b> on a disk.</li>
+</ul>
+<div class="box exam"><b class="lbl">Exam tip: why does boot matter in forensics?</b>
+If you just switch on a suspect's computer, Windows starts and <b>changes files</b> (timestamps, logs). So the investigator changes the <b>CMOS/BIOS boot order</b> to boot from a <b>forensic boot CD or USB</b> instead. This lets you access the disk <b>without altering evidence</b>. Also check the CMOS clock: it may be wrong, which affects your timeline.</div>
+<div class="box memory"><b class="lbl">Memory trick</b><span class="big">"C-B-B-M": "Cik Bawa Buku Merah"</span> → <b>C</b>MOS → <b>B</b>IOS/EFI → <b>B</b>ootstrap → <b>M</b>BR</div>
+</div>
+</section>
+
+<!-- ============ WEEK 7: DISKS ============ -->
+<section id="disk">
+<h2><span class="tag">WEEK 7</span>Disk drives &amp; partitions</h2>
+<div class="card">
+<p>A hard disk is made of one or more <b>platters</b> (round plates) coated with <b>magnetic material</b>.</p>
+<svg viewBox="0 0 640 260" role="img" aria-label="Disk geometry: tracks, sectors, head">
+  <circle class="s-fill" cx="150" cy="130" r="115"/>
+  <circle cx="150" cy="130" r="88" fill="none" stroke="var(--svg-stroke)" stroke-width="1.2"/>
+  <circle cx="150" cy="130" r="62" fill="none" stroke="var(--svg-stroke)" stroke-width="1.2"/>
+  <circle cx="150" cy="130" r="36" fill="none" stroke="var(--svg-stroke)" stroke-width="1.2"/>
+  <circle cx="150" cy="130" r="10" fill="var(--svg-stroke)"/>
+  <path d="M150 130 L150 15 A115 115 0 0 1 231 49 Z" fill="var(--w8)" opacity=".45"/>
+  <circle cx="150" cy="130" r="75" fill="none" stroke="var(--accent)" stroke-width="5"/>
+  <line x1="290" y1="30" x2="185" y2="95" stroke="var(--svg-stroke)" stroke-width="6" stroke-linecap="round"/>
+  <circle cx="290" cy="30" r="8" fill="var(--svg-stroke)"/>
+  <text x="330" y="40" font-size="14"><tspan font-weight="700">Head</tspan>: reads/writes data (arm moves across)</text>
+  <text x="330" y="90" font-size="14" fill="var(--accent)"><tspan font-weight="700">Track</tspan>: one ring (circle) on the platter</text>
+  <text x="330" y="140" font-size="14"><tspan font-weight="700">Sector</tspan>: a slice of a track (usually 512 bytes)</text>
+  <text x="330" y="190" font-size="14"><tspan font-weight="700">Cylinder</tspan>: same track on ALL platters, stacked</text>
+  <text x="330" y="240" font-size="14"><tspan font-weight="700">Geometry</tspan>: the overall layout (C/H/S)</text>
+</svg>
+<div class="box analogy"><b class="lbl">Analogy</b>A platter is like a <b>vinyl record / CD</b>. A <b>track</b> is one lane of a running track. A <b>sector</b> is a slice of pizza cut from that lane. A <b>cylinder</b> is the same lane on every floor of a multi-storey car park. The <b>head</b> is the record player's needle.</div>
+<div class="box memory"><b class="lbl">Memory trick: disk components</b><span class="big">"Good Heads Track Cute Sheep"</span> → <b>G</b>eometry · <b>H</b>ead · <b>T</b>racks · <b>C</b>ylinders · <b>S</b>ectors</div>
+
+<h3>Properties handled by the drive's hardware/firmware</h3>
+<ul>
+  <li><b>Zone Bit Recording (ZBR)</b>: outer tracks are longer, so they hold <b>more sectors</b> than inner tracks. Uses space better.</li>
+  <li><b>Track density</b>: how close together the tracks are (space between tracks).</li>
+  <li><b>Areal density</b>: number of bits in one square inch of the platter.</li>
+  <li><b>Head and cylinder skew</b>: shifts the starting sector between tracks/heads so the head doesn't miss the next sector while it moves. Makes reading faster.</li>
+</ul>
+<div class="box memory"><b class="lbl">Memory trick</b><span class="big">"Zebra Talks About Shoes"</span> → <b>Z</b>BR · <b>T</b>rack density · <b>A</b>real density · <b>S</b>kew</div>
+
+<h3>Disk partitions</h3>
+<p><b>Disk partitioning</b> = dividing one hard drive into several <b>logical storage units</b> called partitions (e.g. C: and D:).</p>
+<p><b>Why partition?</b></p>
+<ul>
+  <li><b>Organization</b>: keep OS, programs and data separate.</li>
+  <li><b>Multiple operating systems</b>: e.g. Windows on one, Linux on another (dual boot).</li>
+  <li><b>Performance</b>: smaller partitions can be faster to manage.</li>
+  <li><b>Data backup and recovery</b>: if the OS partition breaks, the data partition survives.</li>
+</ul>
+<div class="box memory"><b class="lbl">Memory trick</b><span class="big">"Old Men Play Badminton"</span> → <b>O</b>rganization · <b>M</b>ultiple OS · <b>P</b>erformance · <b>B</b>ackup &amp; recovery</div>
+<div class="box analogy"><b class="lbl">Analogy</b>A disk is a <b>house</b>; partitions are <b>rooms</b>. Same house, but the kitchen and bedroom have different uses. Unallocated space is the <b>empty land</b> not yet built into a room.</div>
+<p><b>Practical tip (slide):</b> press <code>Windows + R</code>, type <code>diskmgmt.msc</code> to open Disk Management. Right-click <b>unallocated/free space</b> to create a partition.</p>
+<div class="box exam"><b class="lbl">Exam tip: forensic angle</b>Suspects can <b>hide data</b> in hidden partitions or in gaps between partitions. Always check the full disk, including unallocated space, not just the visible drives.</div>
+</div>
+</section>
+
+<!-- ============ WEEK 7: ENCRYPTION ============ -->
+<section id="enc">
+<h2><span class="tag">WEEK 7</span>BitLocker &amp; disk encryption</h2>
+<div class="card">
+<p><b>Microsoft BitLocker</b> is a <b>full volume encryption</b> feature built into Windows. It protects data by <b>encrypting whole drives</b>. Without the password or recovery key, the data looks like random garbage.</p>
+<p><b>Third-party Whole Disk Encryption (WDE) tools:</b></p>
+<ul>
+  <li>PGP Full Disk Encryption</li>
+  <li>Voltage SecureFile</li>
+  <li>Utimaco SafeGuard Easy</li>
+  <li>Jetico BestCrypt Volume Encryption</li>
+  <li>TrueCrypt</li>
+</ul>
+<div class="box memory"><b class="lbl">Memory trick: 5 WDE tools</b><span class="big">"Please Visit Uncle Jack Today"</span> → <b>P</b>GP · <b>V</b>oltage · <b>U</b>timaco · <b>J</b>etico · <b>T</b>rueCrypt</div>
+<div class="box analogy"><b class="lbl">Analogy</b>Encryption is like putting the <b>whole house inside a giant safe</b>. Even if police take the house (seize the disk), they can't see inside without the <b>key</b> (password / recovery key).</div>
+<div class="box exam"><b class="lbl">Exam tip: why is encryption a challenge?</b>
+If you shut down an encrypted computer, the data locks again. So investigators may need to (1) capture <b>RAM</b> first (the key may be in memory → Volatility), (2) look for the <b>recovery key</b> (e.g. printed, saved to a Microsoft account or USB), or (3) image the drive <b>while it is still unlocked</b>.</div>
+</div>
+</section>
+
+<!-- ============ WEEK 7: REGISTRY ============ -->
+<section id="reg">
+<h2><span class="tag">WEEK 7</span>Windows Registry</h2>
+<div class="card">
+<p>The <b>Registry</b> is a <b>database</b> that stores <b>hardware and software configuration</b>, <b>network connections</b>, <b>user preferences</b> and <b>setup information</b>.</p>
+<p><b>Tools to view it:</b> <code>Regedit</code> (Windows 9x) and <code>Regedt32</code> (Windows 2000, XP, Vista). Both work on Windows 7 and 8.</p>
+<svg viewBox="0 0 700 230" role="img" aria-label="Registry tree structure">
+  <rect class="s-fill" x="10" y="10" width="200" height="38" rx="8"/>
+  <text x="110" y="34" text-anchor="middle" font-size="14" font-weight="700">HKEY_LOCAL_MACHINE</text>
+  <path class="s-line" d="M40 48 V80 H70"/>
+  <rect class="s-fill" x="70" y="62" width="130" height="34" rx="8"/>
+  <text x="135" y="84" text-anchor="middle" font-size="14">SOFTWARE</text>
+  <path class="s-line" d="M100 96 V128 H130"/>
+  <rect class="s-fill" x="130" y="112" width="130" height="34" rx="8"/>
+  <text x="195" y="134" text-anchor="middle" font-size="14">Microsoft</text>
+  <path class="s-line" d="M160 146 V178 H190"/>
+  <rect x="190" y="162" width="250" height="34" rx="8" fill="var(--w8-soft)" stroke="var(--w8)" stroke-width="1.5"/>
+  <text x="315" y="184" text-anchor="middle" font-size="13">Value: ProductName = "Windows 10"</text>
+  <text x="230" y="34" font-size="13" fill="var(--accent)">← HKEY (root folder) / Hive</text>
+  <text x="215" y="84" font-size="13" fill="var(--accent)">← Key (folder)</text>
+  <text x="275" y="134" font-size="13" fill="var(--accent)">← Subkey (folder inside folder)</text>
+  <text x="455" y="184" font-size="13" fill="var(--accent)">← Value (the setting)</text>
+  <text x="10" y="222" font-size="13" fill="var(--muted)">Branch = the full path: HKLM\SOFTWARE\Microsoft\…</text>
+</svg>
+<div class="tablewrap"><table>
+<tr><th>Term</th><th>Meaning</th><th>File-explorer comparison</th></tr>
+<tr><td>Registry</td><td>Windows configuration database</td><td>The whole hard disk</td></tr>
+<tr><td>Registry Editor</td><td>Tool to view/edit the registry</td><td>File Explorer</td></tr>
+<tr><td>HKEY</td><td>Root-level folder</td><td>The C:\ drive</td></tr>
+<tr><td>Key</td><td>A registry folder</td><td>A folder</td></tr>
+<tr><td>Subkey</td><td>A folder inside a key</td><td>A sub-folder</td></tr>
+<tr><td>Branch</td><td>The full hierarchical path</td><td>A full folder path</td></tr>
+<tr><td>Value</td><td>The actual setting data (name + data)</td><td>A file</td></tr>
+<tr><td>Default value</td><td>A key's unnamed value</td><td>—</td></tr>
+<tr><td>Hives</td><td>Main groups of registry files, e.g. HKEY_LOCAL_MACHINE, HKEY_USERS</td><td>Main sections</td></tr>
+</table></div>
+<div class="box analogy"><b class="lbl">Analogy</b>The registry is the <b>diary + address book of Windows</b>. It remembers every USB plugged in, every program installed, every Wi-Fi joined and each user's preferences. That's why investigators love it.</div>
+<div class="box memory"><b class="lbl">Memory trick: order from big to small</b><span class="big">"Hungry Kids Sometimes Value Bread"</span> → <b>H</b>ive/HKEY → <b>K</b>ey → <b>S</b>ubkey → <b>V</b>alue (and <b>B</b>ranch = the path through them)</div>
+<div class="box exam"><b class="lbl">Exam tip: forensic value of the registry</b>Evidence you can find: USB devices connected (SYSTEM hive), installed/uninstalled software (SOFTWARE), user accounts (SAM), recently opened files and typed URLs (NTUSER.DAT), Wi-Fi networks joined, and programs set to auto-run (often used by malware).</div>
+</div>
+</section>
+
+<!-- ============ WEEK 7: VM ============ -->
+<section id="vm">
+<h2><span class="tag">WEEK 7</span>Virtual machines</h2>
+<div class="card">
+<p>A <b>virtual machine (VM)</b> lets you create a <b>computer inside your computer</b>, running as a <b>Guest OS</b> on top of the physical (host) machine.</p>
+<ul>
+  <li>A VM is just <b>a few files</b> on your hard drive.</li>
+  <li>You must <b>allocate space</b> (disk, RAM) to it.</li>
+  <li>It <b>recognises the components</b> of the physical machine it runs on.</li>
+  <li>The virtual OS is <b>limited by the physical machine's OS</b> and hardware.</li>
+</ul>
+<svg viewBox="0 0 600 170" role="img" aria-label="Host and guest OS layers">
+  <rect class="s-fill" x="20" y="125" width="560" height="35" rx="6"/>
+  <text x="300" y="148" text-anchor="middle" font-size="14" font-weight="700">Physical hardware (CPU, RAM, disk)</text>
+  <rect class="s-fill" x="20" y="85" width="560" height="35" rx="6"/>
+  <text x="300" y="108" text-anchor="middle" font-size="14">Host OS (e.g. Windows) + VirtualBox / VMware / Hyper-V</text>
+  <rect x="40" y="15" width="160" height="62" rx="8" fill="var(--accent-soft)" stroke="var(--accent)" stroke-width="1.5"/>
+  <text x="120" y="42" text-anchor="middle" font-size="14" font-weight="700">Guest OS 1</text>
+  <text x="120" y="62" text-anchor="middle" font-size="12">Suspect's drive restored</text>
+  <rect x="220" y="15" width="160" height="62" rx="8" fill="var(--accent-soft)" stroke="var(--accent)" stroke-width="1.5"/>
+  <text x="300" y="42" text-anchor="middle" font-size="14" font-weight="700">Guest OS 2</text>
+  <text x="300" y="62" text-anchor="middle" font-size="12">Linux tools</text>
+  <rect x="400" y="15" width="160" height="62" rx="8" fill="var(--accent-soft)" stroke="var(--accent)" stroke-width="1.5"/>
+  <text x="480" y="42" text-anchor="middle" font-size="14" font-weight="700">Guest OS 3</text>
+  <text x="480" y="62" text-anchor="middle" font-size="12">Test malware safely</text>
+</svg>
+<p><b>In digital forensics, VMs let you:</b></p>
+<ul>
+  <li><b>Restore a suspect's drive</b> inside a VM and see it "as the suspect saw it".</li>
+  <li><b>Run nonstandard software</b> the suspect may have installed, without risking your own machine.</li>
+</ul>
+<p><b>Network forensics issue:</b> a suspect may use a VM to <b>attack another system or network</b>, then delete the VM files to hide the attack. So investigators must look for VM files on suspect drives.</p>
+<p><b>Popular VM software:</b> VMware Server, VMware Player, VMware Workstation, Oracle VM <b>VirtualBox</b> (open-source, free), Microsoft Virtual PC, <b>Hyper-V</b>.</p>
+<div class="box analogy"><b class="lbl">Analogy</b>A VM is a <b>"house within a house"</b>, like a <b>playhouse/sandbox</b> inside your living room. Whatever mess happens inside the sandbox doesn't dirty the real house. Delete the sandbox, and it is gone.</div>
+</div>
+</section>
+
+<!-- ============ WEEK 8: GRAPHICS TYPES ============ -->
+<section id="gfx">
+<h2><span class="tag w8">WEEK 8</span>Recognising graphics files</h2>
+<div class="card">
+<p>Graphics files hold <b>digital photos, line art, 3D images and scanned copies of printed pictures</b>. There are <b>3 types</b>:</p>
+<svg viewBox="0 0 760 210" role="img" aria-label="Bitmap vs vector vs metafile">
+  <!-- bitmap -->
+  <g>
+    <text x="120" y="20" text-anchor="middle" font-weight="700" font-size="15">BITMAP / RASTER</text>
+    <g transform="translate(50,30)">
+      <rect x="0" y="0" width="140" height="140" fill="none" stroke="var(--svg-stroke)"/>
+      <g fill="var(--w8)">
+        <rect x="40" y="20" width="20" height="20"/><rect x="60" y="20" width="20" height="20"/><rect x="80" y="20" width="20" height="20"/>
+        <rect x="20" y="40" width="20" height="20"/><rect x="100" y="40" width="20" height="20"/>
+        <rect x="20" y="60" width="20" height="20"/><rect x="100" y="60" width="20" height="20"/>
+        <rect x="20" y="80" width="20" height="20"/><rect x="100" y="80" width="20" height="20"/>
+        <rect x="40" y="100" width="20" height="20"/><rect x="60" y="100" width="20" height="20"/><rect x="80" y="100" width="20" height="20"/>
+      </g>
+    </g>
+    <text x="120" y="195" text-anchor="middle" font-size="13">grid of dots (pixels) → blocky when zoomed</text>
+  </g>
+  <!-- vector -->
+  <g>
+    <text x="380" y="20" text-anchor="middle" font-weight="700" font-size="15">VECTOR</text>
+    <rect x="310" y="30" width="140" height="140" fill="none" stroke="var(--svg-stroke)"/>
+    <circle cx="380" cy="100" r="45" fill="none" stroke="var(--accent)" stroke-width="5"/>
+    <text x="380" y="104" text-anchor="middle" font-size="11" class="mono">circle(r=45)</text>
+    <text x="380" y="195" text-anchor="middle" font-size="13">math instructions → smooth at any size</text>
+  </g>
+  <!-- metafile -->
+  <g>
+    <text x="640" y="20" text-anchor="middle" font-weight="700" font-size="15">METAFILE</text>
+    <rect x="570" y="30" width="140" height="140" fill="none" stroke="var(--svg-stroke)"/>
+    <g fill="var(--w8)"><rect x="590" y="50" width="20" height="20"/><rect x="610" y="50" width="20" height="20"/><rect x="590" y="70" width="20" height="20"/><rect x="610" y="70" width="20" height="20"/></g>
+    <circle cx="665" cy="125" r="28" fill="none" stroke="var(--accent)" stroke-width="5"/>
+    <text x="640" y="195" text-anchor="middle" font-size="13">bitmap + vector combined</text>
+  </g>
+</svg>
+
+<h3>Bitmap and raster images</h3>
+<ul>
+  <li><b>Bitmap</b>: a grid of individual pixels. <b>Raster</b>: also a collection of pixels, stored in <b>rows</b>.</li>
+  <li>Better for <b>printing</b> (raster).</li>
+  <li><b>Image quality depends on:</b> (1) <b>screen resolution</b> (amount of detail), (2) <b>software/drivers</b>, (3) <b>number of colour bits per pixel</b> (colour depth).</li>
+</ul>
+<div class="tablewrap"><table>
+<tr><th>Feature</th><th>Bitmap</th><th>Raster</th></tr>
+<tr><td>Definition</td><td>Each pixel maps directly to bits; originally <b>1-bit</b> (black/white only)</td><td>Broader term: any image made of a grid of pixels, many colour depths</td></tr>
+<tr><td>Colour depth</td><td>Originally 1-bit (monochrome); now also colour</td><td>1, 8, 24, 32-bit etc.</td></tr>
+<tr><td>File formats</td><td>.bmp, .dib</td><td>.bmp, .jpg, .png, .gif, .tiff…</td></tr>
+<tr><td>Usage</td><td>Older term, often <b>uncompressed</b></td><td>General term (photos, web)</td></tr>
+<tr><td>Scalability</td><td>Loses quality when enlarged (pixelation)</td><td>Same: resolution-dependent</td></tr>
+<tr><td>Compression</td><td>Usually uncompressed → big files</td><td>Can be lossy (JPEG) or lossless (PNG)</td></tr>
+</table></div>
+<div class="box memory"><b class="lbl">Key sentence to memorise</b><b>"All bitmaps are raster images, but not all raster images are bitmaps."</b> Like: all durians are fruit, but not all fruit are durians.</div>
+
+<h3>Vector graphics</h3>
+<ul>
+  <li>Use <b>lines</b> instead of dots.</li>
+  <li>Store only the <b>calculations (math)</b> for drawing lines and shapes.</li>
+  <li><b>Smaller</b> than bitmap files.</li>
+  <li><b>Keep quality when enlarged</b>.</li>
+  <li>Programs: <b>CorelDraw</b>, <b>Adobe Illustrator</b>.</li>
+</ul>
+
+<h3>Metafile graphics</h3>
+<p>A <b>combination of bitmap and vector</b> in one file. Example: a vector drawing with a pasted photo inside it. When you enlarge it, the <b>vector part stays sharp</b> but the <b>bitmap part becomes blocky</b>. (Formats like .wmf / .emf.)</p>
+
+<div class="box analogy"><b class="lbl">Analogy</b>
+<b>Bitmap</b> = a <b>mosaic / cross-stitch</b>: thousands of small tiles. Stand too close (zoom in) and you see the squares.<br>
+<b>Vector</b> = a <b>recipe</b>: "draw a circle of radius 5 cm". You can cook it for 2 people or 200 and it's still perfect.<br>
+<b>Metafile</b> = a <b>scrapbook</b>: hand-drawn lines (vector) with photos glued on (bitmap).</div>
+<div class="box memory"><b class="lbl">Memory trick: 3 types</b><span class="big">"B-V-M: Bitmap = dots, Vector = math, Metafile = mix"</span> (M for Mix, M for Metafile)</div>
+
+<h3>Programs</h3>
+<ul>
+  <li><b>Graphics editors</b>: create and change images (e.g. Photoshop, Paint, GIMP).</li>
+  <li><b>Image viewers</b>: only display images (e.g. IrfanView, Windows Photos).</li>
+</ul>
+</div>
+</section>
+
+<!-- ============ WEEK 8: FORMATS ============ -->
+<section id="fmt">
+<h2><span class="tag w8">WEEK 8</span>Graphics file formats &amp; compression</h2>
+<div class="card">
+<div class="grid2">
+<div><b>Standard formats</b> (most programs can open)<br>
+<span class="pill">.gif</span><span class="pill">.jpeg / .jpg</span><span class="pill">.bmp</span><span class="pill">.tif / .tiff</span><span class="pill">.png</span></div>
+<div><b>Nonstandard formats</b> (need special/newer programs)<br>
+<span class="pill">.tga (Targa)</span><span class="pill">.rtl (Raster Transfer Language)</span><span class="pill">.psd (Photoshop)</span><span class="pill">.svg (Scalable Vector Graphics)</span></div>
+</div>
+<div class="box memory"><b class="lbl">Memory trick</b>Standard: <span class="big">"Good Japanese Bikes Travel"</span> → <b>G</b>IF, <b>J</b>PEG, <b>B</b>MP, <b>T</b>IF.<br>
+Nonstandard: <span class="big">"Tiger Runs Past Snakes"</span> → <b>T</b>GA, <b>R</b>TL, <b>P</b>SD, <b>S</b>VG.</div>
+<div class="box exam"><b class="lbl">Forensic angle</b>A nonstandard file may not open in a normal viewer. An investigator must <b>not ignore</b> an unknown file just because it won't open. Search the internet for its extension to learn which program opens it.</div>
+
+<h3>Compression: lossless vs lossy</h3>
+<div class="tablewrap"><table>
+<tr><th></th><th>Lossless</th><th>Lossy</th></tr>
+<tr><td>Meaning</td><td>Makes file smaller <b>without losing any data</b>; the original can be rebuilt exactly</td><td>Makes file smaller by <b>throwing away some data</b> forever (detail the eye barely notices)</td></tr>
+<tr><td>Quality</td><td>Same as original</td><td>Slightly lower; worse each time you re-save</td></tr>
+<tr><td>File size</td><td>Bigger than lossy</td><td>Much smaller</td></tr>
+<tr><td>Examples</td><td>PNG, GIF, TIFF (LZW), BMP (RLE)</td><td>JPEG</td></tr>
+<tr><td>Methods</td><td>e.g. Huffman coding, LZW, RLE</td><td>e.g. removing colour detail (JPEG's DCT)</td></tr>
+</table></div>
+<div class="box analogy"><b class="lbl">Analogy</b>
+<b>Lossless</b> = <b>vacuum-packing</b> your clothes: the bag is smaller, but every shirt comes back out.<br>
+<b>Lossy</b> = <b>throwing away</b> some clothes so the bag closes. Lighter, but those clothes are gone forever.</div>
+<div class="box exam"><b class="lbl">Forensic angle</b>Lossy compression makes <b>steganography harder to hide but also harder to detect</b>; and re-saving a JPEG changes its bits (and its <b>hash</b>). Compressed files are also harder to recover if fragments are missing.</div>
+</div>
+</section>
+
+<!-- ============ WEEK 8: CAMERA ============ -->
+<section id="cam">
+<h2><span class="tag w8">WEEK 8</span>Digital camera file formats: RAW &amp; Exif</h2>
+<div class="card">
+<p>Witnesses or suspects can take their own digital photos, so investigators must understand camera formats.</p>
+<h3>RAW format</h3>
+<ul>
+  <li>Called a <b>"digital negative"</b>.</li>
+  <li>Found on <b>higher-end</b> digital cameras.</li>
+  <li>The camera sensor simply records pixels straight onto the memory card (no processing).</li>
+  <li>Keeps the <b>best picture quality</b>.</li>
+  <li><b>Biggest disadvantage:</b> it is <b>proprietary</b> (each camera brand has its own format), and <b>not all viewers can display it</b>.</li>
+  <li>Converting raw data into another format (e.g. JPEG) = <b>demosaicing</b>.</li>
+</ul>
+<div class="box analogy"><b class="lbl">Analogy</b>RAW is like <b>uncooked ingredients</b>: best quality, but you need the right kitchen (software) to cook it. <b>Demosaicing</b> is the cooking: turning raw sensor data into a finished picture. The word comes from "mosaic", because the sensor captures colour in a mosaic pattern of red/green/blue dots.</div>
+
+<h3>Exif (Exchangeable Image File) format</h3>
+<ul>
+  <li>Commonly used to store digital pictures.</li>
+  <li>Developed by <b>JEITA</b> (Japan Electronics and Information Technology Industries Association) as a standard for storing <b>metadata</b> in <b>JPEG and TIF</b> files.</li>
+  <li>Metadata tells you the <b>type of camera</b> and the <b>environment</b> where the photo was taken.</li>
+  <li>Exif stores metadata at the <b>beginning of the file</b>.</li>
+  <li>Need special programs to view: <b>Exif Reader</b>, <b>IrfanView</b>, <b>ProDiscover</b>.</li>
+  <li>With these tools you can <b>extract metadata as evidence</b>.</li>
+</ul>
+<svg viewBox="0 0 680 150" role="img" aria-label="Exif JPEG file layout">
+  <rect x="10" y="40" width="70" height="60" fill="var(--w8)" opacity=".85"/>
+  <text x="45" y="75" text-anchor="middle" font-size="13" fill="#fff" font-weight="700">Header</text>
+  <rect x="80" y="40" width="190" height="60" fill="var(--accent)" opacity=".85"/>
+  <text x="175" y="68" text-anchor="middle" font-size="13" fill="#fff" font-weight="700">Exif metadata</text>
+  <text x="175" y="86" text-anchor="middle" font-size="11" fill="#fff">camera, date, GPS…</text>
+  <rect class="s-fill" x="270" y="40" width="400" height="60"/>
+  <text x="470" y="75" text-anchor="middle" font-size="14">Image data (the actual picture)</text>
+  <text x="10" y="28" font-size="12" fill="var(--muted)">Start of file →</text>
+  <text x="10" y="130" font-size="13">Metadata is near the START, so even a partly recovered file may still reveal who/when/where.</text>
+</svg>
+<p><b>Typical Exif evidence:</b> camera <b>make &amp; model</b>, <b>date and time</b> taken, <b>GPS location</b>, shutter speed, aperture, flash, resolution, software used to edit.</p>
+<div class="box analogy"><b class="lbl">Analogy</b>Exif metadata is the <b>label on a food package</b>: who made it, when, where, ingredients. The photo is the food; the Exif is the label stuck on the front.</div>
+<div class="box memory"><b class="lbl">Memory trick</b><b>"Exif = EXtra InFo"</b> (extra information about the photo). Developed by <b>JEITA = Japan</b> (think of Japanese camera brands: Canon, Nikon, Sony).</div>
+<div class="box exam"><b class="lbl">Exam tip</b>A typical question: "How can Exif metadata help an investigation?" Answer: it can <b>prove which camera</b> took the photo (link to suspect's camera), <b>when</b> it was taken (check alibi), and <b>where</b> (GPS). Remember metadata can be <b>edited</b>, so confirm it with other evidence.</div>
+</div>
+</section>
+
+<!-- ============ WEEK 8: HEADERS + CARVING ============ -->
+<section id="hdr">
+<h2><span class="tag w8">WEEK 8</span>Damaged headers, carving &amp; rebuilding</h2>
+<div class="card">
+<h3 style="margin-top:0">What is a file header?</h3>
+<p>Every graphics file starts with a <b>unique header value</b> (also called a <b>magic number</b> or <b>file signature</b>). It tells the computer "I am a JPEG" no matter what the file extension says.</p>
+<svg viewBox="0 0 720 150" role="img" aria-label="JPEG header bytes">
+  <g font-family="ui-monospace,Consolas,monospace" font-size="16">
+    <rect x="10" y="30" width="60" height="44" fill="var(--w8)"/><text x="40" y="58" text-anchor="middle" fill="#fff">FF</text>
+    <rect x="72" y="30" width="60" height="44" fill="var(--w8)"/><text x="102" y="58" text-anchor="middle" fill="#fff">D8</text>
+    <rect x="134" y="30" width="60" height="44" class="s-fill"/><text x="164" y="58" text-anchor="middle">FF</text>
+    <rect x="196" y="30" width="60" height="44" class="s-fill"/><text x="226" y="58" text-anchor="middle">E0</text>
+    <rect x="258" y="30" width="60" height="44" class="s-fill"/><text x="288" y="58" text-anchor="middle">00</text>
+    <rect x="320" y="30" width="60" height="44" class="s-fill"/><text x="350" y="58" text-anchor="middle">10</text>
+    <rect x="382" y="30" width="60" height="44" fill="var(--accent)"/><text x="412" y="58" text-anchor="middle" fill="#fff">J</text>
+    <rect x="444" y="30" width="60" height="44" fill="var(--accent)"/><text x="474" y="58" text-anchor="middle" fill="#fff">F</text>
+    <rect x="506" y="30" width="60" height="44" fill="var(--accent)"/><text x="536" y="58" text-anchor="middle" fill="#fff">I</text>
+    <rect x="568" y="30" width="60" height="44" fill="var(--accent)"/><text x="598" y="58" text-anchor="middle" fill="#fff">F</text>
+  </g>
+  <g font-size="12" fill="var(--muted)">
+    <text x="40" y="22" text-anchor="middle">0</text><text x="102" y="22" text-anchor="middle">1</text><text x="164" y="22" text-anchor="middle">2</text><text x="226" y="22" text-anchor="middle">3</text><text x="288" y="22" text-anchor="middle">4</text><text x="350" y="22" text-anchor="middle">5</text><text x="412" y="22" text-anchor="middle">6</text><text x="474" y="22" text-anchor="middle">7</text><text x="536" y="22" text-anchor="middle">8</text><text x="598" y="22" text-anchor="middle">9</text>
+  </g>
+  <text x="10" y="100" font-size="13"><tspan fill="var(--w8)" font-weight="700">FF D8</tspan> = start of every JPEG (SOI)</text>
+  <text x="380" y="100" font-size="13"><tspan fill="var(--accent)" font-weight="700">"JFIF"</tspan> label starts at <b>offset 6</b></text>
+  <text x="10" y="130" font-size="13" fill="var(--muted)">Offset = position counted from 0. (An Exif JPEG has FF D8 FF E1 and the label "Exif" at offset 6.)</text>
+</svg>
+<ul>
+  <li>JPEG header: <code>FF D8 FF E0 00 10</code></li>
+  <li>Most JPEG files also include the string <b>JFIF</b> (JPEG File Interchange Format).</li>
+  <li>A JPEG starts with <code>FFD8</code>, followed by the label <b>JFIF</b> (standard JPEG) or <b>Exif</b> at <b>offset 6</b>.</li>
+</ul>
+<div class="box memory"><b class="lbl">Memory trick</b><span class="big">"FF D8 = Fast Food Delivery 8 o'clock"</span>. Every JPEG "orders food" first. Then at seat number <b>6</b> sits <b>JFIF</b> ("Just Fine Image File").</div>
+<div class="box analogy"><b class="lbl">Analogy</b>The header is the <b>name tag on a parcel</b>. If someone scratches off the tag (damaged header) or puts a fake label (wrong extension, e.g. <code>holiday.txt</code>), the parcel looks unknown, but the contents inside are still the photo. Fix the tag and it opens again.</div>
+<p><b>Lab exercise:</b> investigate possible <b>intellectual property theft</b> by a contract employee of <b>Exotic Mountain Tour Service (EMTS)</b>, where photos had damaged headers that needed repair.</p>
+
+<h3>Searching for and carving data from unallocated space</h3>
+<p><b>Unallocated space</b> = disk area marked as "free". When a file is deleted, its data often <b>stays there</b> until overwritten. <b>Carving</b> = finding and cutting out file pieces from that space using their <b>header (and footer)</b> signatures, without relying on the file system.</p>
+<svg viewBox="0 0 740 150" role="img" aria-label="Carving process flow">
+  <rect class="s-fill" x="5" y="30" width="165" height="70" rx="10"/>
+  <text x="87" y="60" text-anchor="middle" font-weight="700" font-size="14">1. Plan the</text>
+  <text x="87" y="80" text-anchor="middle" font-weight="700" font-size="14">examination</text>
+  <rect class="s-fill" x="195" y="30" width="165" height="70" rx="10"/>
+  <text x="277" y="60" text-anchor="middle" font-weight="700" font-size="14">2. Search for</text>
+  <text x="277" y="80" text-anchor="middle" font-size="13">"FFD8…JFIF"</text>
+  <rect class="s-fill" x="385" y="30" width="165" height="70" rx="10"/>
+  <text x="467" y="60" text-anchor="middle" font-weight="700" font-size="14">3. Carve /</text>
+  <text x="467" y="80" text-anchor="middle" font-weight="700" font-size="14">extract hits</text>
+  <rect class="s-fill" x="575" y="30" width="160" height="70" rx="10"/>
+  <text x="655" y="60" text-anchor="middle" font-weight="700" font-size="14">4. Check: real</text>
+  <text x="655" y="80" text-anchor="middle" font-size="13">or false positive?</text>
+  <path class="s-line" d="M170 65 L191 65 M183 58 L191 65 L183 72"/>
+  <path class="s-line" d="M360 65 L381 65 M373 58 L381 65 L373 72"/>
+  <path class="s-line" d="M550 65 L571 65 M563 58 L571 65 L563 72"/>
+  <text x="370" y="135" text-anchor="middle" font-size="13" fill="var(--muted)">Tool used in class: ProDiscover (cluster search → select clusters → copy selected clusters to a new file)</text>
+</svg>
+<p><b>Steps (slide):</b></p>
+<ol>
+  <li><b>Planning your examination</b>: what are you looking for, which tool, which file type.</li>
+  <li><b>Searching for and recovering digital photo evidence</b>: use <b>ProDiscover</b> to search for and extract possible JPEG evidence.</li>
+</ol>
+<p><b>False positives</b> = <b>false hits</b>: the search finds the pattern (e.g. "FFD8" or "JFIF"), but it is <b>not really</b> an image file (e.g. those bytes just happen to appear inside another file). Each hit must be checked.</p>
+<div class="box analogy"><b class="lbl">Analogy</b>Carving is like <b>looking through a rubbish dump for torn photographs</b>. You search for the corner with a photo-studio logo (the header) and cut out what follows. Sometimes you find a logo on a cereal box: that's a <b>false positive</b>.</div>
+
+<h3>Rebuilding file headers</h3>
+<p><b>Before</b> editing a recovered file, <b>first try to open it with an image viewer</b>. If it does not display, inspect and fix the header <b>manually</b> in a hex editor.</p>
+<ol>
+  <li><b>Recover</b> more pieces of the file if needed.</li>
+  <li><b>Examine</b> the file header.</li>
+  <li><b>Compare</b> it with a <b>good header sample</b> (a known-good JPEG).</li>
+  <li><b>Manually insert</b> the correct hexadecimal values (e.g. type <code>FF D8 FF E0 00 10 4A 46 49 46</code>).</li>
+  <li><b>Test</b> the corrected file (open it in a viewer).</li>
+</ol>
+<div class="box memory"><b class="lbl">Memory trick: 5 steps</b><span class="big">"Really Every Cat Is Tiny"</span> → <b>R</b>ecover · <b>E</b>xamine · <b>C</b>ompare · <b>I</b>nsert · <b>T</b>est</div>
+<div class="box exam"><b class="lbl">Exam tip: always mention hashing &amp; documentation</b>When you rebuild a header you <b>change the file</b>. So work on a <b>copy</b>, record the <b>hash before and after</b>, and <b>document</b> every byte you changed so the evidence is still acceptable in court.</div>
+
+<h3>Tools for viewing images</h3>
+<ul>
+  <li>After recovering a graphics file, open it with an <b>image viewer</b>.</li>
+  <li><b>No single viewer can read every format</b>, so having <b>many viewers</b> is best.</li>
+  <li>Most GUI forensic tools (Autopsy, FTK, ProDiscover) include built-in viewers for common formats.</li>
+  <li><b>Analyse, identify and inspect every unknown file</b> on a drive.</li>
+</ul>
+</div>
+</section>
+
+<!-- ============ WEEK 8: STEG ============ -->
+<section id="steg">
+<h2><span class="tag w8">WEEK 8</span>Steganography &amp; steganalysis</h2>
+<div class="card">
+<p><b>Steganography</b> = <b>hiding information inside another file</b> (like an image) so nobody knows a secret is there. It is an <b>ancient technique</b> (the Greek word means "covered writing").</p>
+<div class="box analogy"><b class="lbl">Analogy</b><b>Encryption</b> = a locked box: everyone can see the box, but can't open it.<br><b>Steganography</b> = a <b>secret drawer inside a normal cupboard</b>: nobody even knows there's something to open.</div>
+
+<h3>Two major forms</h3>
+<div class="grid2">
+<div class="box" style="background:var(--accent-soft)">
+<b>1. Insertion</b>
+<ul>
+  <li><b>Adds</b> hidden data into the file.</li>
+  <li>Hidden data is <b>not displayed</b> when the host file is opened in its normal program.</li>
+  <li>You must analyse the <b>data structure</b> carefully to find it.</li>
+  <li>Example: a <b>web page</b>: text hidden in the HTML code (e.g. comments, white text on white) doesn't show in the browser but is in the source.</li>
+  <li>Effect: <b>file size grows</b>.</li>
+</ul>
+</div>
+<div class="box" style="background:var(--w8-soft)">
+<b>2. Substitution</b>
+<ul>
+  <li><b>Replaces</b> bits of the host file with bits of secret data.</li>
+  <li>Usually changes the <b>last two LSBs</b> (least significant bits) of each byte.</li>
+  <li>The change is too small for the human eye to see.</li>
+  <li>Detected with <b>steganalysis tools</b> (steg tools).</li>
+  <li>Effect: <b>file size stays the same</b>.</li>
+</ul>
+</div>
+</div>
+
+<h3>How LSB substitution works (picture)</h3>
+<svg viewBox="0 0 720 200" role="img" aria-label="LSB substitution example">
+  <text x="10" y="25" font-size="14" font-weight="700">Original pixel (red value)</text>
+  <g font-family="ui-monospace,Consolas,monospace" font-size="18">
+    <text x="10" y="58">1 1 0 0 1 0 <tspan fill="var(--accent)" font-weight="700">1 1</tspan></text>
+    <text x="200" y="58" font-size="15" font-family="system-ui">= 203</text>
+  </g>
+  <rect x="45" y="72" width="0" height="0"/>
+  <text x="10" y="110" font-size="14" font-weight="700">After hiding secret bits "01"</text>
+  <g font-family="ui-monospace,Consolas,monospace" font-size="18">
+    <text x="10" y="143">1 1 0 0 1 0 <tspan fill="var(--w8)" font-weight="700">0 1</tspan></text>
+    <text x="200" y="143" font-size="15" font-family="system-ui">= 201</text>
+  </g>
+  <rect x="330" y="30" width="80" height="60" fill="rgb(203,60,60)"/>
+  <rect x="330" y="115" width="80" height="60" fill="rgb(201,60,60)"/>
+  <text x="430" y="65" font-size="13">203 red</text>
+  <text x="430" y="150" font-size="13">201 red</text>
+  <text x="510" y="95" font-size="13">The two colours look</text>
+  <text x="510" y="113" font-size="13"><tspan font-weight="700">exactly the same</tspan> to</text>
+  <text x="510" y="131" font-size="13">the human eye.</text>
+  <text x="10" y="192" font-size="12" fill="var(--muted)">LSB = the rightmost bits. Changing them changes the value by only 0–3 (out of 255), so the picture looks unchanged.</text>
+</svg>
+<div class="box analogy"><b class="lbl">Analogy for LSB</b>If you have RM203.00 and someone changes it to RM201.00, you'd notice. But if they change <b>RM203.00 to RM203.01</b>, nobody notices. The <b>LSB is the "1 sen" digit</b> of each pixel.</div>
+
+<div class="box memory"><b class="lbl">Memory trick: Insertion vs Substitution</b>
+<span class="big">"Insertion INcreases, Substitution Swaps"</span><br>
+<b>I</b>nsertion = <b>I</b>nsert extra data → size goes up, hidden in structure.<br>
+<b>S</b>ubstitution = <b>S</b>wap the last bits → <b>S</b>ame size, needs <b>S</b>teg tools.</div>
+
+<h3>Clues of steganography (what to look for)</h3>
+<ul>
+  <li><b>Duplicate files with different hash values</b>: two pictures look identical, but hashes differ → one may carry hidden data.</li>
+  <li><b>Steganography programs installed</b> on the suspect's drive.</li>
+  <li>Changes in <b>file size</b>, <b>image quality</b> or <b>file extension</b>.</li>
+</ul>
+<div class="box memory"><b class="lbl">Memory trick: clues</b><span class="big">"Twins With Different Fingerprints"</span>: two identical-looking files (twins) with different hashes (fingerprints) = suspect steganography.</div>
+
+<h3>Steganalysis tools</h3>
+<ul>
+  <li><b>Steganalysis</b> = finding out whether a file hides information.</li>
+  <li>Steg tools are used to <b>detect, decode and record</b> hidden data.</li>
+  <li>They detect <b>variations</b> of the graphic image (compare with the original if available).</li>
+  <li>If steganography is applied correctly, <b>in most cases you cannot detect the hidden data</b>.</li>
+  <li>Check whether <b>file size, image quality or file extension</b> have changed.</li>
+</ul>
+<p>You should <b>inspect all files</b> for evidence of steganography.</p>
+<div class="box exam"><b class="lbl">Exam tip</b>"Detect, decode, record" are the 3 jobs of steg tools: <span class="big">"D-D-R: Doctor Diagnoses, Records"</span>.</div>
+</div>
+</section>
+
+<!-- ============ WEEK 8: COPYRIGHT ============ -->
+<section id="copy">
+<h2><span class="tag w8">WEEK 8</span>Copyright issues with graphics</h2>
+<div class="card">
+<ul>
+  <li>Steganography is also used for a <b>good purpose</b>: to <b>protect copyrighted material</b> by inserting <b>digital watermarks</b> into a file.</li>
+  <li>Digital investigators need to be <b>aware of copyright laws</b>.</li>
+  <li>Copyright laws for the <b>Internet are not clear</b>.</li>
+  <li>There is <b>no international copyright law</b>; each country has its own.</li>
+  <li>Check <b>www.copyright.gov</b>: the <b>U.S. Copyright Office</b> lists what can and can't be covered under U.S. copyright law.</li>
+</ul>
+<div class="box analogy"><b class="lbl">Analogy</b>A digital watermark is like the <b>hidden security thread in a Ringgit note</b>: you don't normally see it, but it proves the note is genuine and who issued it. A photographer hides a watermark in a photo to prove "this is mine".</div>
+<div class="box exam"><b class="lbl">Link to the EMTS case</b>The EMTS exercise (intellectual property theft by a contractor) connects to copyright: recovered photos + watermark/metadata can prove the images belong to EMTS.</div>
+</div>
+</section>
+
+<!-- ============ CHEAT SHEET ============ -->
+<section id="cheat">
+<h2>One-page cheat sheet</h2>
+<div class="card">
+<div class="tablewrap"><table>
+<tr><th>Topic</th><th>Must-remember points</th><th>Trick</th></tr>
+<tr><td>7 tools</td><td>FTK Imager, Autopsy, Wireshark, Volatility, ProDiscover, XAMN, Browser History Capturer/Viewer</td><td>Fat Auntie Wants Very Pretty eXpensive Bags</td></tr>
+<tr><td>Autopsy features</td><td>File system, Data extraction, Data recovery, Timeline, Advanced search, Reporting, Integration</td><td>Five Doctors Do Tests And Report Immediately</td></tr>
+<tr><td>Wireshark features / uses</td><td>Capture, Deep inspection, Filter, Decrypt, Export, Cross-platform / Intrusion, Malware, User activity</td><td>Cats Dig For Delicious Extra Chicken / I Must Understand</td></tr>
+<tr><td>Volatility features</td><td>Memory image, System info, Process &amp; thread, File system, Registry</td><td>My Sister Plays Football Regularly</td></tr>
+<tr><td>Boot</td><td>CMOS (config, date/time) → BIOS/EFI → Bootstrap (ROM) → MBR (partitions)</td><td>Cik Bawa Buku Merah</td></tr>
+<tr><td>Disk parts</td><td>Geometry, Head, Tracks, Cylinders, Sectors; firmware: ZBR, track density, areal density, skew</td><td>Good Heads Track Cute Sheep / Zebra Talks About Shoes</td></tr>
+<tr><td>Why partition</td><td>Organization, Multiple OS, Performance, Backup/recovery</td><td>Old Men Play Badminton</td></tr>
+<tr><td>WDE tools</td><td>PGP, Voltage SecureFile, Utimaco SafeGuard Easy, Jetico BestCrypt, TrueCrypt (+ BitLocker built-in)</td><td>Please Visit Uncle Jack Today</td></tr>
+<tr><td>Registry</td><td>Database of hardware/software config, network, user prefs, setup. Hive → Key → Subkey → Value</td><td>Hungry Kids Sometimes Value Bread</td></tr>
+<tr><td>VM</td><td>Guest OS on host; few files; restore suspect drive; run suspect software; may be used to attack</td><td>Sandbox inside the house</td></tr>
+<tr><td>Graphics types</td><td>Bitmap = dots; Vector = math; Metafile = mix</td><td>B-V-M</td></tr>
+<tr><td>Formats</td><td>Standard: GIF, JPEG, BMP, TIF. Nonstandard: TGA, RTL, PSD, SVG</td><td>Good Japanese Bikes Travel / Tiger Runs Past Snakes</td></tr>
+<tr><td>Compression</td><td>Lossless (nothing lost: PNG, GIF) vs Lossy (data thrown away: JPEG)</td><td>Vacuum pack vs throw away</td></tr>
+<tr><td>RAW / Exif</td><td>RAW = digital negative, proprietary, demosaicing. Exif = JEITA, metadata in JPEG/TIF, at start of file; Exif Reader, IrfanView, ProDiscover</td><td>Exif = EXtra InFo</td></tr>
+<tr><td>JPEG header</td><td><code>FF D8 FF E0 00 10</code>; "JFIF" / "Exif" at offset 6</td><td>Fast Food Delivery 8</td></tr>
+<tr><td>Rebuild header</td><td>Recover, Examine, Compare, Insert, Test</td><td>Really Every Cat Is Tiny</td></tr>
+<tr><td>Steganography</td><td>Insertion (adds, size grows, hidden in structure) vs Substitution (swaps last 2 LSBs, same size)</td><td>Insertion INcreases, Substitution Swaps</td></tr>
+<tr><td>Steg clues</td><td>Duplicate files with different hashes; steg programs installed; size/quality/extension changed</td><td>Twins With Different Fingerprints</td></tr>
+<tr><td>Copyright</td><td>Digital watermarks; Internet law unclear; no international law; copyright.gov</td><td>Security thread in a banknote</td></tr>
+</table></div>
+</div>
+</section>
+
+<!-- ============ QUESTIONS ============ -->
+<section id="qs">
+<h2>Practice questions (subjective) with model answers</h2>
+<div class="card">
+<p>Try to write each answer on paper <b>first</b>, then open the model answer to check. Marks shown are a guide to how much detail to write.</p>
+<div class="ctrl">
+  <button type="button" onclick="toggleAll(true)">Show all answers</button>
+  <button type="button" onclick="toggleAll(false)">Hide all answers</button>
+</div>
+</div>
+
+<h3>Part A: Week 7 (Tools, Windows, File systems)</h3>
+
+<details class="q"><summary>Q1. What is FTK Imager? State THREE of its features. <span class="marks">[4 marks]</span></summary><div class="ans">
+<p>FTK Imager is a free digital forensics tool developed by <b>AccessData</b>. It lets investigators <b>create forensic images</b> (exact copies) of storage devices such as hard drives, SSDs and network shares, and analyse them without changing the original.</p>
+<p>Features (any three):</p>
+<ol><li>Supports a wide range of <b>file systems</b>.</li><li><b>Image carving</b>: recovers files from the image.</li><li><b>Hash matching</b>: proves the copy is identical to the original.</li><li><b>Report generation</b>.</li></ol>
+</div></details>
+
+<details class="q"><summary>Q2. Explain FIVE key features of the Autopsy forensic tool. <span class="marks">[5–10 marks]</span></summary><div class="ans">
+<ol>
+<li><b>File system analysis</b>: lets the investigator navigate the device's file system to find and analyse files.</li>
+<li><b>Data extraction</b>: extracts images, videos, documents and other artifacts.</li>
+<li><b>Data recovery</b>: recovers deleted or corrupted files.</li>
+<li><b>Timeline analysis</b>: shows events in chronological order so the investigator can see what happened and when.</li>
+<li><b>Advanced search</b>: filters data using criteria like keywords, file types or dates.</li>
+<li><b>Reporting</b>: creates detailed reports summarising the evidence.</li>
+<li><b>Integration</b>: works with other forensic tools and databases to support collaboration.</li>
+</ol>
+<p class="note">Write 5 of the 7. Remember: "Five Doctors Do Tests And Report Immediately".</p>
+</div></details>
+
+<details class="q"><summary>Q3. Describe how Wireshark is used in digital forensics. Give THREE uses. <span class="marks">[6 marks]</span></summary><div class="ans">
+<p>Wireshark is an open-source tool that <b>captures and analyses network packets in real time</b>, with deep packet inspection of hundreds of protocols (TCP, UDP, HTTP, DNS, FTP).</p>
+<ol>
+<li><b>Intrusion detection</b>: identifies unauthorised access attempts or data being sent out of the network (exfiltration).</li>
+<li><b>Malware analysis</b>: tracks the communication patterns of malware, e.g. connections to a command-and-control (C2) server.</li>
+<li><b>User activity monitoring</b>: shows which websites, applications and remote services a user accessed and when.</li>
+</ol>
+<p>Its display filters help isolate suspicious traffic, and captures can be exported as evidence.</p>
+</div></details>
+
+<details class="q"><summary>Q4. What is Volatility? Why is memory (RAM) analysis important? List its features. <span class="marks">[8 marks]</span></summary><div class="ans">
+<p>Volatility is a forensic tool that analyses <b>volatile memory dumps</b> (copies of RAM) taken from a computer.</p>
+<p><b>Why important:</b> RAM is lost when the computer is turned off. It contains evidence that may not be on the hard disk: running processes, network connections, encryption keys, passwords, and malware that runs only in memory. Capturing and analysing RAM saves this evidence.</p>
+<p><b>Features:</b></p>
+<ol>
+<li><b>Memory image analysis</b>: analyse dump files manually or automatically.</li>
+<li><b>System information</b>: hardware/software configuration, drivers and services.</li>
+<li><b>Process and thread analysis</b>: track running processes and their behaviour.</li>
+<li><b>File system analysis</b>: data, deleted files and metadata at that point in time.</li>
+<li><b>Registry analysis</b>: installed applications, configuration and user settings.</li>
+</ol>
+</div></details>
+
+<details class="q"><summary>Q5. State the locations of the SAM and NTUSER.DAT registry hives and what each one contains. <span class="marks">[4 marks]</span></summary><div class="ans">
+<ul>
+<li><b>SAM</b>: <code>C:\Windows\System32\config\SAM</code>. Holds <b>user account</b> information and password hashes.</li>
+<li><b>NTUSER.DAT</b>: <code>C:\Users\&lt;username&gt;\NTUSER.DAT</code>. Holds <b>one user's personal settings and activity</b> (recent files, typed paths/URLs, preferences).</li>
+</ul>
+<p class="note">Other hives in System32\config: SYSTEM, SOFTWARE, SECURITY, DEFAULT. UsrClass.dat is in <code>AppData\Local\Microsoft\Windows</code>.</p>
+</div></details>
+
+<details class="q"><summary>Q6. Differentiate between Content View and Cluster View in ProDiscover. <span class="marks">[4 marks]</span></summary><div class="ans">
+<div class="tablewrap"><table><tr><th>Content View</th><th>Cluster View</th></tr>
+<tr><td>Shows the evidence as <b>files and folders</b> (logical view), like Windows Explorer</td><td>Shows the evidence as <b>raw clusters</b> on the disk (physical view)</td></tr>
+<tr><td>Good for browsing existing and some deleted files</td><td>Good for examining <b>unallocated space</b> and <b>carving</b> deleted file fragments</td></tr></table></div>
+</div></details>
+
+<details class="q"><summary>Q7. Differentiate between Browser History Capturer and Browser History Viewer. <span class="marks">[4 marks]</span></summary><div class="ans">
+<p><b>Browser History Capturer</b> <b>extracts</b> browsing history from browsers (Chrome, Edge, Firefox, Internet Explorer) on a Windows computer. It is the collection step.</p>
+<p><b>Browser History Viewer</b> <b>displays</b> the history so the investigator can navigate it, showing every website visited with the <b>date and time</b> of each visit. It is the analysis/viewing step.</p>
+<p>Together they reveal a user's browsing patterns and behaviour.</p>
+</div></details>
+
+<details class="q"><summary>Q8. What is a file system? Why must an investigator understand it? <span class="marks">[4 marks]</span></summary><div class="ans">
+<p>A file system gives the OS a <b>road map</b> to the data on a disk. The type of file system determines <b>how data is stored</b>, where files are located, and what happens when files are deleted.</p>
+<p>An investigator must understand both the OS and file system so they can correctly <b>acquire and inspect data</b>, know where to look for deleted or hidden data, and interpret timestamps and metadata correctly.</p>
+</div></details>
+
+<details class="q"><summary>Q9. Explain the role of CMOS, BIOS/EFI and the bootstrap process. Why must an investigator be careful when booting a suspect's computer? <span class="marks">[8 marks]</span></summary><div class="ans">
+<ul>
+<li><b>CMOS</b>: stores system configuration and date/time information, kept when the power is off.</li>
+<li><b>BIOS/EFI</b>: contains programs that perform input and output at the hardware level.</li>
+<li><b>Bootstrap process</b>: stored in ROM; tells the computer how to start and shows the key to press to open the CMOS setup screen.</li>
+</ul>
+<p><b>Careful because:</b> if the suspect's computer boots normally into its own OS, the OS writes to the disk (updates logs, timestamps, temp files), which <b>alters evidence</b>. The investigator should enter CMOS setup and change the boot order to boot from a <b>forensic boot CD/USB</b>, so the disk is accessed without being changed. They should also record the CMOS date/time and compare it to the real time, because a wrong clock affects the timeline.</p>
+</div></details>
+
+<details class="q"><summary>Q10. With a diagram, explain the components of a hard disk drive. <span class="marks">[6 marks]</span></summary><div class="ans">
+<p>Draw a circle (platter) with rings (tracks), a pie-slice (sector) and an arm (head), like the picture in the "Disks" section.</p>
+<ul>
+<li><b>Platter</b>: round disk coated with magnetic material.</li>
+<li><b>Geometry</b>: the internal organisation of the drive (cylinders, heads, sectors).</li>
+<li><b>Head</b>: reads and writes data on the platter.</li>
+<li><b>Track</b>: a concentric circle on a platter.</li>
+<li><b>Cylinder</b>: a column of the same track across all platters.</li>
+<li><b>Sector</b>: a section of a track (usually 512 bytes).</li>
+</ul>
+</div></details>
+
+<details class="q"><summary>Q11. Explain Zone Bit Recording, track density, areal density and head/cylinder skew. <span class="marks">[4 marks]</span></summary><div class="ans">
+<ul>
+<li><b>ZBR</b>: groups tracks into zones; outer tracks (longer) hold more sectors than inner ones, so disk space is used better.</li>
+<li><b>Track density</b>: the space between each track; higher density = more tracks fit.</li>
+<li><b>Areal density</b>: number of bits in one square inch of a platter.</li>
+<li><b>Head and cylinder skew</b>: offsets the first sector of the next track/cylinder so the head can keep reading without waiting a full rotation, improving performance.</li>
+</ul>
+<p>These are handled at the drive's <b>hardware or firmware level</b>.</p>
+</div></details>
+
+<details class="q"><summary>Q12. What is disk partitioning? Give FOUR reasons to partition a disk. How can partitions affect an investigation? <span class="marks">[6 marks]</span></summary><div class="ans">
+<p><b>Disk partitioning</b> is dividing a hard drive into several logical storage units called partitions.</p>
+<ol><li><b>Organization</b>: separate OS, programs and data.</li><li><b>Multiple OSs</b>: install different operating systems (dual boot).</li><li><b>Performance</b>.</li><li><b>Data backup and recovery</b>: data survives if the OS partition fails.</li></ol>
+<p><b>Investigation:</b> suspects may hide data in <b>hidden partitions</b>, deleted partitions or gaps between partitions. The investigator should examine the whole disk including unallocated space. (Open Disk Management with <code>Win+R → diskmgmt.msc</code>.)</p>
+</div></details>
+
+<details class="q"><summary>Q13. What is Microsoft BitLocker? Name THREE third-party whole disk encryption tools. Explain one challenge encryption creates for investigators. <span class="marks">[6 marks]</span></summary><div class="ans">
+<p>BitLocker is a <b>full volume encryption</b> feature built into Windows that protects data by encrypting entire drives.</p>
+<p>Third-party WDE tools: PGP Full Disk Encryption, Voltage SecureFile, Utimaco SafeGuard Easy, Jetico BestCrypt Volume Encryption, TrueCrypt (any three).</p>
+<p><b>Challenge:</b> without the password or recovery key the data cannot be read. If the computer is shut down, the drive locks again. Investigators should capture RAM (the key may be in memory) or image the drive while it is still unlocked, and search for recovery keys.</p>
+</div></details>
+
+<details class="q"><summary>Q14. Define the Windows Registry and explain FIVE registry terms. Why is it useful in forensics? <span class="marks">[8 marks]</span></summary><div class="ans">
+<p>The Registry is a <b>database</b> that stores hardware and software configuration information, network connections, user preferences and setup information. It is viewed with <b>Regedit</b> or <b>Regedt32</b>.</p>
+<ul>
+<li><b>HKEY</b>: root-level folder of the registry.</li>
+<li><b>Key</b>: a folder in the registry.</li>
+<li><b>Subkey</b>: a folder inside a key.</li>
+<li><b>Branch</b>: the hierarchical path to a key.</li>
+<li><b>Value</b>: the setting data stored in a key.</li>
+<li><b>Default value</b>: a key's unnamed value.</li>
+<li><b>Hives</b>: the main groups of registry files, e.g. HKEY_LOCAL_MACHINE and HKEY_USERS.</li>
+</ul>
+<p><b>Useful because</b> it records attached hardware (e.g. USB drives), installed software, user activity, network connections and preferences, which can link a suspect to actions on the computer.</p>
+</div></details>
+
+<details class="q"><summary>Q15. What is a virtual machine? Explain TWO ways VMs help forensic investigators and ONE issue they create. <span class="marks">[6 marks]</span></summary><div class="ans">
+<p>A virtual machine allows you to create a representation of another computer (a <b>guest OS</b>) on an existing physical computer. It is just a few files on the hard drive; you must allocate space to it, it recognises the physical machine's components, and it is limited by the host OS.</p>
+<p><b>Helps:</b> (1) restore a suspect's drive in a VM to see the system as the suspect used it; (2) run nonstandard software the suspect installed, safely and isolated.</p>
+<p><b>Issue:</b> a suspect may use a VM to <b>attack another system or network</b> and then delete the VM files, hiding the evidence. Investigators must look for VM files and software (VMware, VirtualBox, Hyper-V) on suspect drives.</p>
+</div></details>
+
+<h3>Part B: Week 8 (Recovering Graphics Files)</h3>
+
+<details class="q"><summary>Q16. Explain the THREE types of graphics files. <span class="marks">[6 marks]</span></summary><div class="ans">
+<ol>
+<li><b>Bitmap/raster</b>: a grid of individual pixels (dots) stored in rows. Quality depends on resolution and colour depth; it becomes blocky (pixelated) when enlarged. E.g. .bmp, .jpg.</li>
+<li><b>Vector</b>: based on mathematical instructions for lines and shapes. Smaller files, and quality stays the same when enlarged. E.g. made in CorelDraw, Adobe Illustrator.</li>
+<li><b>Metafile</b>: a combination of bitmap and vector in one file. When enlarged, the vector part stays sharp but the bitmap part loses quality.</li>
+</ol>
+</div></details>
+
+<details class="q"><summary>Q17. "All bitmaps are raster images, but not all raster images are bitmaps." Explain this statement. <span class="marks">[4 marks]</span></summary><div class="ans">
+<p>"Bitmap" historically meant an image where each pixel maps directly to bits, originally <b>1-bit</b> (black and white only), usually uncompressed (.bmp, .dib). "Raster" is the <b>broader category</b> for any pixel-grid image, supporting many colour depths (1, 8, 24, 32-bit) and compression (lossy JPEG, lossless PNG). So a bitmap is one kind of raster image, while raster also includes JPEG, PNG, GIF, TIFF and others.</p>
+</div></details>
+
+<details class="q"><summary>Q18. What factors affect the quality of a bitmap/raster image? <span class="marks">[3 marks]</span></summary><div class="ans">
+<ol><li><b>Screen resolution</b>: determines the amount of detail shown.</li><li><b>Software / drivers</b>: the graphics software and drivers affect display quality.</li><li><b>Number of colour bits per pixel</b> (colour depth): more bits = more colours.</li></ol>
+</div></details>
+
+<details class="q"><summary>Q19. Differentiate between lossless and lossy compression, with examples. <span class="marks">[4 marks]</span></summary><div class="ans">
+<div class="tablewrap"><table><tr><th>Lossless</th><th>Lossy</th></tr>
+<tr><td>Reduces file size without losing any data; original can be rebuilt exactly</td><td>Reduces file size by permanently discarding some data</td></tr>
+<tr><td>Quality unchanged; larger files</td><td>Some quality loss; much smaller files</td></tr>
+<tr><td>e.g. PNG, GIF, TIFF</td><td>e.g. JPEG</td></tr></table></div>
+</div></details>
+
+<details class="q"><summary>Q20. Explain the RAW file format. What is its main disadvantage, and what is demosaicing? <span class="marks">[5 marks]</span></summary><div class="ans">
+<p>RAW is the format on higher-end digital cameras, called a <b>digital negative</b>. The sensor records pixels directly onto the memory card with no processing, so it keeps the <b>best picture quality</b>.</p>
+<p><b>Disadvantage:</b> it is <b>proprietary</b> (each manufacturer has its own format), so not all image viewers can display it.</p>
+<p><b>Demosaicing</b> is the process of converting raw picture data into another format (e.g. JPEG or TIFF).</p>
+</div></details>
+
+<details class="q"><summary>Q21. What is the Exif format? How can Exif metadata help a forensic investigation? Name TWO tools that can read it. <span class="marks">[8 marks]</span></summary><div class="ans">
+<p>Exif (Exchangeable Image File) is a format commonly used for digital pictures. It was developed by <b>JEITA</b> as a standard for storing <b>metadata</b> in JPEG and TIF files. The metadata is stored at the <b>beginning of the file</b>.</p>
+<p><b>Helps investigation:</b> metadata tells the investigator the <b>type/model of camera</b> used and the <b>environment</b> in which the picture was taken: date and time, GPS location, camera settings (shutter speed, flash). This can link a photo to a suspect's camera, confirm or break an alibi, and place a person at a location. The metadata can be extracted as evidence.</p>
+<p><b>Tools:</b> Exif Reader, IrfanView, ProDiscover.</p>
+</div></details>
+
+<details class="q"><summary>Q22. What is a file header? State the JPEG header value and explain how an investigator rebuilds a damaged header. <span class="marks">[10 marks]</span></summary><div class="ans">
+<p>A file header is the <b>unique value at the start of a file</b> that identifies its type. Each graphics file has its own header.</p>
+<p><b>JPEG header:</b> <code>FF D8 FF E0 00 10</code>. Most JPEGs also contain the string <b>JFIF</b>; a JPEG begins with <code>FFD8</code> followed by the label <b>JFIF</b> (standard JPEG) or <b>Exif</b> at <b>offset 6</b>.</p>
+<p><b>Rebuilding steps:</b> first try to open the recovered file in an image viewer. If it doesn't display:</p>
+<ol>
+<li><b>Recover</b> more pieces of the file if needed.</li>
+<li><b>Examine</b> the file header in a hex editor.</li>
+<li><b>Compare</b> it with a known good header sample.</li>
+<li><b>Manually insert</b> the correct hexadecimal values.</li>
+<li><b>Test</b> the corrected file by opening it.</li>
+</ol>
+<p>Work on a copy, and document the changes and hash values to keep the evidence admissible.</p>
+</div></details>
+
+<details class="q"><summary>Q23. What is data carving from unallocated space? What is a false positive? <span class="marks">[6 marks]</span></summary><div class="ans">
+<p><b>Unallocated space</b> is disk space marked as free; deleted file data often remains there until overwritten. <b>Carving</b> is searching that space for known file signatures (e.g. JPEG <code>FFD8</code> / "JFIF") and extracting the data into a new file, without relying on the file system.</p>
+<p>Steps: (1) plan the examination; (2) search for and recover digital photo evidence, e.g. using <b>ProDiscover</b> to search for and extract JPEG files.</p>
+<p>A <b>false positive</b> is a <b>false hit</b>: the search finds the signature but the data is not actually a valid image (the bytes just happen to match). Each hit must be verified.</p>
+</div></details>
+
+<details class="q"><summary>Q24. Why should an investigator keep several image viewer programs? <span class="marks">[3 marks]</span></summary><div class="ans">
+<p>Because <b>no single viewer can read every file format</b>. Some formats are nonstandard or proprietary (e.g. RAW, PSD, TGA). Having several viewers ensures every recovered file can be opened. Most GUI forensic tools include viewers for common formats, but the investigator must still <b>analyse, identify and inspect every unknown file</b> on the drive.</p>
+</div></details>
+
+<details class="q"><summary>Q25. Define steganography. Compare insertion and substitution steganography. <span class="marks">[8 marks]</span></summary><div class="ans">
+<p><b>Steganography</b> is an ancient technique of <b>hiding information inside another file</b> (e.g. an image) so that the existence of the message is concealed.</p>
+<div class="tablewrap"><table><tr><th>Insertion</th><th>Substitution</th></tr>
+<tr><td>Adds hidden data into the host file</td><td>Replaces bits of the host file with bits of hidden data</td></tr>
+<tr><td>Hidden data is not displayed when the file is viewed in its associated program</td><td>Usually changes the last two least significant bits (LSBs); visual change is invisible to the eye</td></tr>
+<tr><td>Found by carefully analysing the file's data structure</td><td>Detected using steganalysis (steg) tools</td></tr>
+<tr><td>File size usually increases</td><td>File size usually stays the same</td></tr>
+<tr><td>Example: text hidden in a web page's code</td><td>Example: message hidden in pixel LSBs of a BMP</td></tr></table></div>
+</div></details>
+
+<details class="q"><summary>Q26. What clues suggest a suspect used steganography? What do steganalysis tools do? <span class="marks">[6 marks]</span></summary><div class="ans">
+<p><b>Clues:</b></p>
+<ul><li><b>Duplicate files with different hash values</b> (look the same but aren't identical).</li><li><b>Steganography programs installed</b> on the suspect's drive.</li><li>Changes in <b>file size</b>, <b>image quality</b> or <b>file extension</b>.</li></ul>
+<p><b>Steganalysis tools</b> are used to <b>detect, decode and record</b> hidden data. They detect variations in the graphic image. However, when steganography is applied correctly, the hidden data <b>cannot be detected in most cases</b>, so investigators should inspect all files.</p>
+</div></details>
+
+<details class="q"><summary>Q27. How is steganography used to protect copyright? What copyright issues should investigators know? <span class="marks">[5 marks]</span></summary><div class="ans">
+<p>Steganography protects copyrighted material by inserting <b>digital watermarks</b> into a file, which can prove ownership.</p>
+<p><b>Issues:</b> investigators must be aware of copyright laws; copyright laws for the Internet are <b>not clear</b>; there is <b>no international copyright law</b>; the <b>U.S. Copyright Office</b> (www.copyright.gov) identifies what can and can't be covered under U.S. law.</p>
+</div></details>
+
+<h3>Part C: Scenario / application questions</h3>
+
+<details class="q"><summary>Q28. Scenario (EMTS): A contract employee of Exotic Mountain Tour Service is suspected of stealing company photos. You have an image of his USB drive, but some JPEG files will not open. Describe how you would recover the evidence. <span class="marks">[10 marks]</span></summary><div class="ans">
+<ol>
+<li><b>Preserve evidence</b>: work on a forensic image (e.g. created with FTK Imager), record the <b>hash</b> of the original and the copy.</li>
+<li><b>Plan the examination</b>: we are looking for JPEG photos belonging to EMTS.</li>
+<li><b>Search</b> the image (including <b>unallocated space</b>) using ProDiscover for JPEG signatures <code>FFD8</code> and the string "JFIF"/"Exif".</li>
+<li><b>Carve / extract</b> the hits into new files; check each for <b>false positives</b>.</li>
+<li><b>Try opening</b> each file in an image viewer. If it won't open, view it in a hex editor.</li>
+<li><b>Rebuild the header</b>: compare with a good JPEG header and insert the correct values <code>FF D8 FF E0 00 10 4A 46 49 46</code>; test the file again.</li>
+<li><b>Examine Exif metadata</b> (Exif Reader / IrfanView / ProDiscover): camera model, date/time, GPS, to prove the photos are EMTS's.</li>
+<li>Check for <b>steganography / watermarks</b> and for files with changed extensions.</li>
+<li><b>Document</b> every step, hash values before/after, and write the report.</li>
+</ol>
+</div></details>
+
+<details class="q"><summary>Q29. Scenario: You find two image files, "beach.bmp" and "beach_copy.bmp", that look exactly the same, but their MD5 hashes are different. A program called "S-Tools" is also installed. What might this mean and what would you do? <span class="marks">[6 marks]</span></summary><div class="ans">
+<p>This strongly suggests <b>steganography</b>, most likely <b>substitution</b> (LSB). Two identical-looking files with different hashes, plus a steg program installed, are classic clues. Since the files are the same size but different, bits were probably swapped rather than inserted.</p>
+<p><b>Actions:</b> compare the two files byte-by-byte (hex compare) to find where they differ; run <b>steganalysis tools</b> to <b>detect, decode and record</b> the hidden data; check file size, quality and extension; examine the steg program's settings/history; document all findings.</p>
+</div></details>
+
+<details class="q"><summary>Q30. Scenario: A company suspects an employee's PC is sending data to an unknown server. The PC is still running. Which tools from Week 7 would you use and why? <span class="marks">[8 marks]</span></summary><div class="ans">
+<ol>
+<li><b>Volatility</b>: capture RAM first (it is lost if the PC is shut down) and analyse running processes, network connections and any malware in memory. Encryption keys may also be in RAM.</li>
+<li><b>Wireshark</b>: capture network traffic to see where data is going (destination IP, protocol), detect exfiltration and C2 communication.</li>
+<li><b>FTK Imager</b>: create a forensic image of the disk and verify it with a hash.</li>
+<li><b>Autopsy</b>: analyse the disk image: timeline, recovered deleted files, search for the suspicious program.</li>
+<li><b>Registry analysis</b> (NTUSER.DAT, SOFTWARE, SYSTEM): find auto-run programs, installed software, USB devices.</li>
+<li><b>Browser History Capturer/Viewer</b>: check web activity, e.g. uploads to cloud sites.</li>
+</ol>
+<p>Order matters: collect the most <b>volatile</b> evidence (RAM, network) first.</p>
+</div></details>
+
+<details class="q"><summary>Q31. An investigator receives a file called "notes.txt" that is 2 MB and won't open in Notepad. Explain how she can find out what it really is. <span class="marks">[4 marks]</span></summary><div class="ans">
+<p>The extension may have been <b>changed to hide the file</b>. She should open it in a <b>hex editor</b> (or forensic tool) and look at the <b>file header</b>. If it starts with <code>FF D8 FF E0</code> and "JFIF" at offset 6, it is really a <b>JPEG</b>. She can then rename a <b>copy</b> to .jpg and open it in an image viewer. A changed extension is also a clue of possible data hiding, so she should check it for steganography and record it in the report.</p>
+</div></details>
+</section>
+
+<!-- ============ CHECKLIST ============ -->
+<section id="check">
+<h2>Night-before checklist</h2>
+<div class="card">
+<p class="note">Tick each one when you can explain it out loud without looking. Ticks are saved only in this browser.</p>
+<ul class="check" id="checklist">
+<li><label><input type="checkbox"> I can name the 7 tools and what evidence each one handles</label></li>
+<li><label><input type="checkbox"> I can list 5 Autopsy features and 5 Volatility features</label></li>
+<li><label><input type="checkbox"> I can give 3 Wireshark uses (Intrusion, Malware, User activity)</label></li>
+<li><label><input type="checkbox"> I know the registry hive paths (System32\config + user folder)</label></li>
+<li><label><input type="checkbox"> I can explain CMOS, BIOS/EFI, bootstrap, MBR and why we boot from forensic media</label></li>
+<li><label><input type="checkbox"> I can draw a disk and label head, track, sector, cylinder</label></li>
+<li><label><input type="checkbox"> I can give 4 reasons for partitioning</label></li>
+<li><label><input type="checkbox"> I can name BitLocker + 3 third-party WDE tools</label></li>
+<li><label><input type="checkbox"> I can explain registry terms (HKEY, key, subkey, branch, value, hive)</label></li>
+<li><label><input type="checkbox"> I can explain VMs in forensics (2 benefits + 1 issue)</label></li>
+<li><label><input type="checkbox"> I can compare bitmap, vector and metafile</label></li>
+<li><label><input type="checkbox"> I can compare lossless vs lossy, with examples</label></li>
+<li><label><input type="checkbox"> I can explain RAW, demosaicing, Exif (JEITA) and Exif tools</label></li>
+<li><label><input type="checkbox"> I can write the JPEG header FF D8 FF E0 00 10 and explain offset 6 (JFIF/Exif)</label></li>
+<li><label><input type="checkbox"> I can list the 5 header-rebuild steps (Recover, Examine, Compare, Insert, Test)</label></li>
+<li><label><input type="checkbox"> I can explain carving and false positives</label></li>
+<li><label><input type="checkbox"> I can compare insertion vs substitution steganography and explain LSB</label></li>
+<li><label><input type="checkbox"> I can list steg clues and what steg tools do (detect, decode, record)</label></li>
+<li><label><input type="checkbox"> I can explain digital watermarks and copyright issues</label></li>
+</ul>
+<p class="big" style="margin-top:16px">Good luck, Ar! 💪</p>
+</div>
+</section>
+
+</div>
+<script>
+function toggleAll(open){document.querySelectorAll('details.q').forEach(function(d){d.open=open;});}
+(function(){
+  var boxes=document.querySelectorAll('#checklist input');
+  var saved=[];
+  try{saved=JSON.parse(localStorage.getItem('cf-test2-check')||'[]');}catch(e){}
+  boxes.forEach(function(b,i){
+    if(saved[i]) b.checked=true;
+    b.addEventListener('change',function(){
+      var s=[];boxes.forEach(function(x){s.push(x.checked);});
+      try{localStorage.setItem('cf-test2-check',JSON.stringify(s));}catch(e){}
+    });
+  });
+})();
+</script>
+</body>
+</html>
